@@ -1,2 +1,2 @@
 # toggl-vis
-Visualize your Toggl data
+Javascript bookmarklet for visualising your data in [Toggle](www.toggl.com)
