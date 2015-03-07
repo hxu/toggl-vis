@@ -7,6 +7,9 @@
   // Change to your workspace
   var workspaceId = "687782";
 
+  // load Plottable
+  document.body.appendChild(document.createElement('script')).src='https://cdn.rawgit.com/palantir/plottable/develop/plottable.min.js';
+
   var getTotalPages = function(data) {
     var perPage = data.per_page;
     var totalCount = data.total_count;
@@ -37,6 +40,21 @@
   };
 
   var makeOverlay = function() {
+    var w = $(window).width();
+    var h = $(window).height();
+
+    var overlay = $("<div></div>").appendTo("body").
+      css({
+        width: w,
+        height: h,
+        "background-color": "white",
+        "z-index": 1000,
+        position: "absolute",
+        top: window.scrollY,
+        left: window.scrollX
+      });
+
+    return overlay;
   };
 
   fetchEntries("2015-03-01", "2015-03-06").then(function(data) { console.log(data); });
